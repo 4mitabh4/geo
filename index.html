@@ -43,14 +43,14 @@
 
     <script>
             // initialize the map
-            var map = L.map("map").setView([23.838697, 78.1141228], 4);
+            var map = L.map("map").setView([23.838697, 78.1141228], 5);
 
             // load a tile layer
             L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png", {
               attribution:
                 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
               maxZoom: 6,
-              minZoom: 4,
+              minZoom: 5,
 
             }).addTo(map);
             var southWest = L.latLng(3.048549, 54.237599),
