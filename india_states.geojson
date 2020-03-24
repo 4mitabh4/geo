@@ -6,8 +6,8 @@
       "properties": {
         "id": 19,
         "name": "Chandigarh",
-        "confirmed case": 7,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 7
       },
       "geometry": {
         "type": "Polygon",
@@ -53,8 +53,8 @@
       "properties": {
         "id": 4,
         "name": "Delhi",
-        "confirmed case": 29,
-        "Death": 1
+        "Death": 1,
+        "confirmed_case": 29
       },
       "geometry": {
         "type": "Polygon",
@@ -163,8 +163,8 @@
       "properties": {
         "id": 7,
         "name": "Himachal Pradesh",
-        "confirmed case": 3,
-        "Death": 1
+        "Death": 1,
+        "confirmed_case": 3
       },
       "geometry": {
         "type": "Polygon",
@@ -750,8 +750,8 @@
       "properties": {
         "id": 6,
         "name": "Haryana",
-        "confirmed case": 14,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 14
       },
       "geometry": {
         "type": "Polygon",
@@ -1998,8 +1998,8 @@
       "properties": {
         "id": 20,
         "name": "Jammu and Kashmir",
-        "confirmed case": 4,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 4
       },
       "geometry": {
         "type": "Polygon",
@@ -3230,8 +3230,8 @@
       "properties": {
         "id": 1,
         "name": "Andhra Pradesh",
-        "confirmed case": 8,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 8
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -5658,8 +5658,8 @@
       "properties": {
         "id": 9,
         "name": "Kerala",
-        "confirmed case": 87,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 87
       },
       "geometry": {
         "type": "Polygon",
@@ -6494,8 +6494,8 @@
       "properties": {
         "id": "IND-2443",
         "name": "Lakshadweep",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -6654,8 +6654,8 @@
       "properties": {
         "id": 13,
         "name": "Odisha",
-        "confirmed case": 2,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 2
       },
       "geometry": {
         "type": "Polygon",
@@ -8099,8 +8099,8 @@
       "properties": {
         "id": "IND-2445",
         "name": "Dadra and Nagar Haveli",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -8216,8 +8216,8 @@
       "properties": {
         "id": 8,
         "name": "Karnataka",
-        "confirmed case": 37,
-        "Death": 1
+        "Death": 1,
+        "confirmed_case": 37
       },
       "geometry": {
         "type": "Polygon",
@@ -10302,8 +10302,8 @@
       "properties": {
         "id": 11,
         "name": "Maharashtra",
-        "confirmed case": 86,
-        "Death": 2
+        "Death": 2,
+        "confirmed_case": 86
       },
       "geometry": {
         "type": "Polygon",
@@ -12657,8 +12657,8 @@
       "properties": {
         "id": "IND-2474",
         "name": "Andaman and Nicobar",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -13638,8 +13638,8 @@
       "properties": {
         "id": "IND-2477",
         "name": "Assam",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -14655,8 +14655,8 @@
       "properties": {
         "id": 12,
         "name": "Manipur",
-        "confirmed case": 1,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -14992,8 +14992,8 @@
       "properties": {
         "id": "IND-2479",
         "name": "Nagaland",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -15346,8 +15346,8 @@
       "properties": {
         "id": "IND-2489",
         "name": "Meghalaya",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -15762,8 +15762,8 @@
       "properties": {
         "id": 15,
         "name": "Punjab",
-        "confirmed case": 29,
-        "Death": 1
+        "Death": 1,
+        "confirmed_case": 29
       },
       "geometry": {
         "type": "Polygon",
@@ -16525,8 +16525,8 @@
       "properties": {
         "id": 16,
         "name": "Rajasthan",
-        "confirmed case": 30,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 30
       },
       "geometry": {
         "type": "Polygon",
@@ -18537,8 +18537,8 @@
       "properties": {
         "id": 22,
         "name": "Uttar Pradesh",
-        "confirmed case": 32,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 32
       },
       "geometry": {
         "type": "Polygon",
@@ -20647,8 +20647,8 @@
       "properties": {
         "id": "IND-3254",
         "name": "Uttaranchal",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -21154,8 +21154,8 @@
       "properties": {
         "id": "IND-3256",
         "name": "Jharkhand",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -22252,8 +22252,8 @@
       "properties": {
         "id": 24,
         "name": "West Bengal",
-        "confirmed case": 9,
-        "Death": 1
+        "Death": 1,
+        "confirmed_case": 9
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -23976,8 +23976,8 @@
       "properties": {
         "id": 2,
         "name": "Bihar",
-        "confirmed case": 3,
-        "Death": 1
+        "Death": 1,
+        "confirmed_case": 3
       },
       "geometry": {
         "type": "Polygon",
@@ -24991,8 +24991,8 @@
       "properties": {
         "id": "IND-3259",
         "name": "Sikkim",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -25127,8 +25127,8 @@
       "properties": {
         "id": 3,
         "name": "Chhattisgarh",
-        "confirmed case": 1,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 1
       },
       "geometry": {
         "type": "Polygon",
@@ -26437,8 +26437,8 @@
       "properties": {
         "id": 10,
         "name": "Madhya Pradesh",
-        "confirmed case": 7,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 7
       },
       "geometry": {
         "type": "Polygon",
@@ -28968,8 +28968,8 @@
       "properties": {
         "id": 14,
         "name": "Puducherry",
-        "confirmed case": 1,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 1
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -29184,8 +29184,8 @@
       "properties": {
         "id": 17,
         "name": "Tamil Nadu",
-        "confirmed case": 13,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 13
       },
       "geometry": {
         "type": "MultiPolygon",
@@ -30273,8 +30273,8 @@
       "properties": {
         "id": 5,
         "name": "Gujarat",
-        "confirmed case": 32,
-        "Death": 1
+        "Death": 1,
+        "confirmed_case": 32
       },
       "geometry": {
         "type": "Polygon",
@@ -32145,8 +32145,8 @@
       "properties": {
         "id": "IND-3265",
         "name": "Goa",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -32358,8 +32358,8 @@
       "properties": {
         "id": "IND-3299",
         "name": "Arunachal Pradesh",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -33055,8 +33055,8 @@
       "properties": {
         "id": "IND-3300",
         "name": "Mizoram",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -33427,8 +33427,8 @@
       "properties": {
         "id": "IND-3301",
         "name": "Tripura",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -33713,8 +33713,8 @@
       "properties": {
         "id": "IND-3504",
         "name": "Daman and Diu",
-        "confirmed case": 0,
-        "Death": 0
+        "Death": 0,
+        "confirmed_case": 0
       },
       "geometry": {
         "type": "MultiPolygon",
