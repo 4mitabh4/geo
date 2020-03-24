@@ -1,13 +1,14 @@
 <html>
   <head>
     <title>A Leaflet map!</title>
+    <!-- css leaflet -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css"
       integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM="
       crossorigin="anonymous"
     />
-
+    <!-- js leaflet  -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"
       integrity="sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso="
@@ -19,115 +20,114 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"
-      integrity="sha256-WL6HHfYfbFEkZOFdsJQeY7lJG/E5airjvqbznghUzRw="
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css"
-      integrity="sha256-+bdWuWOXMFkX0v9Cvr3OWClPiYefDQz9GGZP/7xZxdc="
-      crossorigin="anonymous"
-    />
+
     <style>
       #map {
         height: 100%;
       }
       .legend {
-    line-height: 18px;
-    color: #555;
-}
-.legend i {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 8px;
-    opacity: 0.7;
-}
+        line-height: 18px;
+        color: #555;
+      }
+      .legend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+      }
     </style>
   </head>
   <body>
     <div id="map"></div>
 
     <script>
-      // initialize the map
-      var map = L.map("map").setView([23.838697, 78.1141228], 4);
+            // initialize the map
+            var map = L.map("map").setView([23.838697, 78.1141228], 4);
 
-      // load a tile layer
-      L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png", {
-        attribution:
-          'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
-        maxZoom: 6,
-        minZoom: 4
-      }).addTo(map);
+            // load a tile layer
+            L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png", {
+              attribution:
+                'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
+              maxZoom: 6,
+              minZoom: 4,
 
-      function getColor(d) {
-        return d > 300000
-          ? "#800026"
-          : d > 200000
-          ? "#BD0026"
-          : d > 100000
-          ? "#E31A1C"
-          : d > 70000
-          ? "#FC4E2A"
-          : d > 40000
-          ? "#FD8D3C"
-          : d > 25000
-          ? "#FEB24C"
-          : d > 1000
-          ? "#FED976"
-          : "#FFEDA0";
-      }
-      function style(feature) {
-        return {
-          fillColor: getColor(feature.properties.area),
-          weight: 2,
-          opacity: 1,
-          color: "white",
-          dashArray: "3",
-          fillOpacity: 0.7
-        };
-      }
+            }).addTo(map);
+            var southWest = L.latLng(3.048549, 54.237599),
+northEast = L.latLng(39.124163, 100.350449);
+var bounds = L.latLngBounds(southWest, northEast);
 
-      // layer
-      $.getJSON("india_states.geojson", function(data) {
-        // add GeoJSON layer to the map once the file is loaded
+map.setMaxBounds(bounds);
+map.on('drag', function() {
+	map.panInsideBounds(bounds, { animate: false });
+});
 
-        var datalayer = L.geoJson(data, {
-          onEachFeature: function(feature, featureLayer) {
-            featureLayer.bindPopup(
-              feature.properties.id + "<br/>" + feature.properties.name
-            );
-          },
-          style: style
-        }).addTo(map);
-        map.fitBounds(datalayer.getBounds());
-      });
+            function getColor(d) {
+              return d > 300000
+                ? "#800026"
+                : d > 200000
+                ? "#BD0026"
+                : d > 100000
+                ? "#E31A1C"
+                : d > 70000
+                ? "#FC4E2A"
+                : d > 40000
+                ? "#FD8D3C"
+                : d > 25000
+                ? "#FEB24C"
+                : d > 1000
+                ? "#FED976"
+                : "#FFEDA0";
+            }
+            function style(feature) {
+              return {
+                fillColor: getColor(feature.properties.area),
+                weight: 2,
+                opacity: 1,
+                color: "white",
+                dashArray: "3",
+                fillOpacity: 0.7
+              };
+            }
 
-      // legend
-      var legend = L.control({ position: "bottomright" });
+            // layer
+            $.getJSON("india_states.geojson", function(data) {
+              // add GeoJSON layer to the map once the file is loaded
 
-      legend.onAdd = function(map) {
-        var div = L.DomUtil.create("div", "info legend"),
-          // grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-          grades = [0, 1000, 25000, 40000, 70000, 100000, 200000, 300000],
-          labels = [];
+              var datalayer = L.geoJson(data, {
+                onEachFeature: function(feature, featureLayer) {
+                  featureLayer.bindPopup(
+                    feature.properties.id + "<br/>" + feature.properties.name
+                  );
+                },
+                style: style
+              }).addTo(map);
+              map.fitBounds(datalayer.getBounds());
+            });
 
-        // loop through our density intervals and generate a label with a colored square for each interval
-        for (var i = 0; i < grades.length; i++) {
-          div.innerHTML +=
-            '<i style="background:' +
-            getColor(grades[i] + 1) +
-            '"></i> ' +
-            grades[i] +
-            (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
-        }
+            // legend
+            var legend = L.control({ position: "bottomright" });
 
-        return div;
-      };
+            legend.onAdd = function(map) {
+              var div = L.DomUtil.create("div", "info legend"),
+                // grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+                grades = [0, 1000, 25000, 40000, 70000, 100000, 200000, 300000],
+                labels = [];
 
-      legend.addTo(map);
+              // loop through our density intervals and generate a label with a colored square for each interval
+              for (var i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                  '<i style="background:' +
+                  getColor(grades[i] + 1) +
+                  '"></i> ' +
+                  grades[i] +
+                  (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
+              }
+
+              return div;
+            };
+
+            legend.addTo(map);
     </script>
   </body>
 </html>
