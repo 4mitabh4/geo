@@ -53,7 +53,9 @@
               minZoom: 5,
 
             }).addTo(map);
-            var southWest = L.latLng(8.095214, 63.172716),
+
+// fixed map 
+var southWest = L.latLng(8.095214, 63.172716),
 northEast = L.latLng(39.124163, 100.350449);
 var bounds = L.latLngBounds(southWest, northEast);
 
@@ -62,6 +64,7 @@ map.on('drag', function() {
 	map.panInsideBounds(bounds, { animate: false });
 });
 
+// color 
             function getColor(d) {
               return d > 300000
                 ? "#800026"
@@ -97,7 +100,7 @@ map.on('drag', function() {
               var datalayer = L.geoJson(data, {
                 onEachFeature: function(feature, featureLayer) {
                   featureLayer.bindPopup(
-                    feature.properties.id + "<br/>" + feature.properties.name
+                    feature.properties.name + "<br/>" + feature.properties.Death
                   );
                 },
                 style: style
