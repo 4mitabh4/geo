@@ -1,3 +1,25 @@
+#map{
+  height: 70vh;
+}
+
+.legend {
+  line-height: 18px;
+  color: rgb(192, 31, 31);
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+.img{
+  height: 37px;
+}
+.nav{
+  font-weight: bold;
+}
+
 @media only screen and (max-width: 800px) {
   /* Force table to not be like tables anymore */
   #no-more-tables table,

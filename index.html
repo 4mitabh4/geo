@@ -1,6 +1,36 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Go Corona Go</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+
+    <!-- Optional theme -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous"
+    />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
     <!-- css leaflet -->
     <link
       rel="stylesheet"
@@ -14,97 +44,58 @@
       integrity="sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso="
       crossorigin="anonymous"
     ></script>
-    <!-- jquery  -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
-    <!-- bootstrap -->
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-
-    <style>
-      #map {
-        height: 60%;
-      }
-      #map1 {
-        color: rgb(29, 148, 74);
-      }
-      .legend {
-        line-height: 18px;
-        color: #555;
-      }
-      .legend i {
-        width: 18px;
-        height: 18px;
-        float: left;
-        margin-right: 8px;
-        opacity: 0.7;
-      }
-    </style>
+    <!-- custom css  -->
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- navbar  -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-        <img
-          src="img/icon_germ.png"
-          width="30"
-          height="30"
-          class="d-inline-block align-top"
-          alt=""
-        />
-        Home</a
-      >
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="#">Updates</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link text-dark" href="#">Precautions</a>
-          </li>
-          
-        </ul>
+    <div class="navbar-wrapper">
+      <div class="container-fluid">
+
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>  
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <img src="img/icon_germ.jpg" class="img" alt="corona" srcset="">
+              </a>
+              
+            </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">precaution</a></li>
+                <li><a href="#">helpline</a></li>
+                <li><a href="#">updates</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </nav>
+    </div>
+    <!-- title  -->
     <div class="text-capitalize text-center">
-      <h4><strong>coronavirus map</strong></h4>
+      <h3><strong>coronavirus map</strong></h3>
+      <p><strong>click on the map to get the state wise details.</strong></p>
     </div>
     <!-- map  -->
     <div id="map"></div>
-    <div class="text-center text-capitalize">
-      <h2>tabular format</h2>
-    </div>
-    <!-- table  -->
+    
+    <!-- container  -->
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 text-capitalize">
           <h1 class="text-center">
-            COVID-19 Statistics (India)
+            tabular format
           </h1>
+          <h3 class="text-center ">
+            COVID-19 Statistics (India)
+          </h3>
+
         </div>
         <div id="no-more-tables">
           <table
@@ -115,10 +106,8 @@
               <tr>
                 <th>S. No</th>
                 <th>Name of State / UT</th>
-                <th>Total Confirmed cases (Indian National)</th>
-                <th class="numeric">
-                  Total Confirmed cases ( Foreign National )
-                </th>
+                <th class="numeric">Confirmed Cases(Indian National)</th>
+                <th class="numeric">Confirmed Cases(Foreign National)</th>
                 <th class="numeric">Cured/ Discharged/Migrated</th>
                 <th class="numeric">Death</th>
               </tr>
@@ -127,8 +116,7 @@
           </table>
         </div>
       </div>
-    </div>
-    <!-- table ends  -->
+      <!-- table ends  -->
     <div class="text-capitalize text-center">
       <div>
         <h4>
@@ -169,6 +157,6 @@
         });
       });
     </script>
-    <script src="js/map.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
