@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>A Leaflet map!</title>
+    <title>Go Corona Go</title>
     <!-- css leaflet -->
     <link
       rel="stylesheet"
@@ -20,10 +20,25 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
+    <!-- bootstrap -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
 
     <style>
       #map {
-        height: 100%;
+        height: 60%;
+      }
+      #map1 {
+        color: rgb(29, 148, 74);
       }
       .legend {
         line-height: 18px;
@@ -39,97 +54,121 @@
     </style>
   </head>
   <body>
+    <!-- navbar  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img
+          src="img/icon_germ.png"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        Home</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">Updates</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link text-dark" href="#">Precautions</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+    <div class="text-capitalize text-center">
+      <h4><strong>coronavirus map</strong></h4>
+    </div>
+    <!-- map  -->
     <div id="map"></div>
-
+    <div class="text-center text-capitalize">
+      <h2>tabular format</h2>
+    </div>
+    <!-- table  -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center">
+            COVID-19 Statistics (India)
+          </h1>
+        </div>
+        <div id="no-more-tables">
+          <table
+            class="col-md-12 table-bordered table-striped table-condensed cf"
+            id="table"
+          >
+            <thead class="cf">
+              <tr>
+                <th>S. No</th>
+                <th>Name of State / UT</th>
+                <th>Total Confirmed cases (Indian National)</th>
+                <th class="numeric">
+                  Total Confirmed cases ( Foreign National )
+                </th>
+                <th class="numeric">Cured/ Discharged/Migrated</th>
+                <th class="numeric">Death</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- table ends  -->
+    <div class="text-capitalize text-center">
+      <div>
+        <h4>
+          <strong
+            >Data Source:<a href="https://www.mohfw.gov.in/">mohfw.gov.in</a>
+          </strong>
+        </h4>
+      </div>
+      <div>
+        <h6>
+          <strong
+            >Data on this page is refreshed automatically on hourly basis from
+            12 pm-12 am</strong
+          >
+        </h6>
+      </div>
+    </div>
     <script>
-            // initialize the map
-            var map = L.map("map").setView([23.838697, 78.1141228], 5);
-
-            // load a tile layer
-            L.tileLayer("http://tiles.mapc.org/basemap/{z}/{x}/{y}.png", {
-              attribution:
-                'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
-              maxZoom: 6,
-              minZoom: 5,
-
-            }).addTo(map);
-
-// fixed map 
-var southWest = L.latLng(8.095214, 63.172716),
-northEast = L.latLng(39.124163, 100.350449);
-var bounds = L.latLngBounds(southWest, northEast);
-
-map.setMaxBounds(bounds);
-map.on('drag', function() {
-	map.panInsideBounds(bounds, { animate: false });
-});
-
-// color 
-            function getColor(d) {
-              return d > 70
-                ? "#800026"
-                : d > 60
-                ? "#BD0026"
-                : d > 50
-                ? "#E31A1C"
-                : d > 35
-                ? "#FC4E2A"
-                : d > 25
-                ? "#FD8D3C"
-                : d > 10
-                ? "#FEB24C"
-                : d > 5
-                ? "#FED976"
-                : "#FFEDA0";
-            }
-            function style(feature) {
-              return {
-                fillColor: getColor(feature.properties.confirmed_case),
-                weight: 2,
-                opacity: 1,
-                color: "white",
-                dashArray: "3",
-                fillOpacity: 0.7
-              };
-            }
-
-            // layer
-            $.getJSON("india_states.geojson", function(data) {
-              // add GeoJSON layer to the map once the file is loaded
-
-              var datalayer = L.geoJson(data, {
-                onEachFeature: function(feature, featureLayer) {
-                  featureLayer.bindPopup(
-                    feature.properties.name +"<br/>"+ 'Confirmed cases : ' +feature.properties.confirmed_case+ "<br/>" + 'Death : ' + feature.properties.Death
-                  );
-                },
-                style: style
-              }).addTo(map);
-              map.fitBounds(datalayer.getBounds());
-            });
-
-            // legend
-            var legend = L.control({ position: "bottomright" });
-
-            legend.onAdd = function(map) {
-              var div = L.DomUtil.create("div", "info legend"),
-                grades = [0, 5, 10, 25, 35, 50, 60, 70],
-                labels = [];
-
-              // loop through our density intervals and generate a label with a colored square for each interval
-              for (var i = 0; i < grades.length; i++) {
-                div.innerHTML +=
-                  '<i style="background:' +
-                  getColor(grades[i] + 1) +
-                  '"></i> ' +
-                  grades[i] +
-                  (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
-              }
-
-              return div;
-            };
-
-            legend.addTo(map);
+      $(document).ready(function() {
+        $.getJSON("test.json", function(data) {
+          var x = "";
+          $.each(data, function(key, value) {
+            x += "<tr>";
+            x += "<td data-title='S. No' > " + value.sl_no + "</td>";
+            x += "<td data-title='Name of State / UT'>" + value.name + "</td>";
+            x +=
+              "<td data-title='Confirmed cases(Indian)'>" +
+              value.c_case_n +
+              "</td>";
+            x +=
+              "<td data-title='Confirmed cases(Foreign)'>" +
+              value.c_case_i +
+              "</td>";
+            x += "<td data-title='Cured'>" + value.cured + "</td>";
+            x += "<td data-title='Death'>" + value.death + "</td>";
+          });
+          $("#table").append(x);
+        });
+      });
     </script>
+    <script src="js/map.js"></script>
   </body>
 </html>
