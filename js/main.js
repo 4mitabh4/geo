@@ -83,7 +83,8 @@ legend.onAdd = function(map) {
       getColor(grades[i] + 1) +
       '"></i> ' +
       grades[i] +
-      (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
+      (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+"
+      + "<br>"+ "Confirmed cases");
   }
 
   return div;
