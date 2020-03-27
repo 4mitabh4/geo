@@ -9,7 +9,6 @@ nav {
   background: #e6e4e441;
   z-index: 100;
   overflow: hidden;
-  color: black;
 }
 
 .nav-links {
@@ -20,12 +19,11 @@ nav {
   justify-content: space-around;
   align-items: center;
   margin-left: auto;
-  color: black;
 }
 
 .nav-links li a {
-  color: white;
-  text-decoration: none;
+  color: rgb(5, 5, 5);
+  text-decoration: wavy;
   font-size: 16px;
 }
 
@@ -40,16 +38,16 @@ nav {
 }
 
 .mob-nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
+  color: rgb(0, 0, 0);
+  text-decoration: dotted;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 768px) {
   .line {
     width: 30px;
     height: 3px;
-    background: white;
+    background: rgb(0, 0, 0);
     margin: 5px;
   }
   nav {
@@ -72,7 +70,7 @@ nav {
 
   .mob-nav-links {
     position: fixed;
-    background: #5b78c7;
+    background: #e7e8eb;
     height: 100vh;
     width: 100%;
     flex-direction: column;
