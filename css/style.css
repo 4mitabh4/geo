@@ -1,5 +1,6 @@
 #map{
   height: 60vh;
+  z-index: 1;
 }
 
 .legend {
