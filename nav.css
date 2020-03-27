@@ -56,10 +56,10 @@ nav {
   }
 
   .hamburger {
-    position: absolute;
+    position: fixed;
     cursor: pointer;
     right: 5%;
-    top: 50%;
+    top: 4%;
     transform: translate(-5%, -50%);
     z-index: 101;
   }
