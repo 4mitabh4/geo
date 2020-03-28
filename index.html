@@ -117,7 +117,7 @@
   <!-- totalconfirmed -->
   <div id="totalconfirmed"></div>
     <!-- table starts  -->
-    <!-- container  -->
+    <!-- table starts  -->
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-capitalize">
@@ -127,7 +127,6 @@
           <h3 class="text-center ">
             COVID-19 Statistics (India)
           </h3>
-
         </div>
         <div id="no-more-tables">
           <table
@@ -136,54 +135,22 @@
           >
             <thead class="cf">
               <tr>
-                <th>S. No</th>
-                <th>Name of State / UT</th>
-                <th class="numeric">Confirmed Cases(Indian National)</th>
-                <th class="numeric">Confirmed Cases(Foreign National)</th>
-                <th class="numeric">Cured/ Discharged/Migrated</th>
+                <th>State / UT</th>
+                <th class="numeric">Confirmed Cases</th>
                 <th class="numeric">Death</th>
+                <th class="numeric">Cured/ Discharged/Migrated</th>
+                <th class="numeric">Last Updated</th>
               </tr>
             </thead>
             <tbody></tbody>
           </table>
         </div>
       </div>
-      
-      <!-- table ends  -->
-    <div class="text-capitalize text-center">
-      
-      <div>
-        <h6>
-          <strong
-            >Data on this page is refreshed automatically on hourly basis from
-            12 pm-12 am</strong
-          >
-        </h6>
-      </div>
     </div>
-    <script>
-      $(document).ready(function() {
-        $.getJSON("test.json", function(data) {
-          var x = "";
-          $.each(data, function(key, value) {
-            x += "<tr>";
-            x += "<td data-title='S. No' > " + value.sl_no + "</td>";
-            x += "<td data-title='Name of State / UT'>" + value.name + "</td>";
-            x +=
-              "<td data-title='cases(Indian National)'>" +
-              value.c_case_n +
-              "</td>";
-            x +=
-              "<td data-title='cases(Foreign National)'>" +
-              value.c_case_i +
-              "</td>";
-            x += "<td data-title='Cured'>" + value.cured + "</td>";
-            x += "<td data-title='Death'>" + value.death + "</td>";
-          });
-          $("#table").append(x);
-        });
-      });
-    </script>
+      <!-- table ends  -->
+    
+    
+    <script src="js/table.js"></script>
     <script src="js/main.js"></script>
     <script src="js/graph.js"></script>
     <footer>

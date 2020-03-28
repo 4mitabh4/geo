@@ -53,15 +53,27 @@ $.getJSON("india_states.geojson", function(data) {
 
   var datalayer = L.geoJson(data, {
     onEachFeature: function(feature, featureLayer) {
-      featureLayer.bindPopup(
-        feature.properties.name +
-          "<br/>" +
-          "Confirmed cases : " +
-          feature.properties.confirmed_case +
-          "<br/>" +
-          "Death : " +
-          feature.properties.Death
-      );
+      $.getJSON("https://api.covid19india.org/data.json", function(datax) {
+        $.each(datax["statewise"], function(key, val) {
+          if (val.state != "Total") {
+            if (val.state == feature.properties.name) {
+              feature.properties.confirmed_case = val.confirmed;
+              featureLayer.bindPopup(
+                feature.properties.name +
+                  "<br/>" +
+                  "Confirmed cases : " +
+                  val.confirmed +
+                  "<br/>" +
+                  "Death : " +
+                  val.deaths +
+                  "<br/>" +
+                  "Recovered : " +
+                  val.recovered
+              );
+            }
+          }
+        });
+      });
     },
     style: style
   }).addTo(map);
@@ -83,8 +95,9 @@ legend.onAdd = function(map) {
       getColor(grades[i] + 1) +
       '"></i> ' +
       grades[i] +
-      (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+"
-      + "<br>"+ "Confirmed cases");
+      (grades[i + 1]
+        ? "&ndash;" + grades[i + 1] + "<br>"
+        : "+" + "<br>" + "Confirmed cases");
   }
 
   return div;
