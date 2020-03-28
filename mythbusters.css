@@ -22,12 +22,15 @@ p {
   color: gray;
 }
 img {
-  border-radius: 10px;
-  box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.5);
-  width: 350px;
+  width: 40vw;
 }
 
 @media screen and (max-width: 768px) {
+  .icon_mob li {
+    text-align: center;
+    list-style-type: none;
+    float: left;
+  }
   .desc {
     width: 100vw;
     height: auto;
@@ -37,8 +40,6 @@ img {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
-    border-radius: 10px;
-    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.5);
   }
   .columns {
     width: 100vw;
