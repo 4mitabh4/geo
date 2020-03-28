@@ -17,3 +17,19 @@ $(document).ready(function() {
     $("#table").append(x);
   });
 });
+
+// total 
+$(document).ready(function() {
+  $.getJSON("https://api.covid19india.org/data.json", function(data) {
+    var x = "";
+    $.each(data["statewise"], function(key, value) {
+      if (value.state == "Total") {
+        $("#Confirmed").append(value.confirmed);
+        $("#Death").append(value.deaths);
+        $("#Recovered").append(value.recovered);
+        $("#Updated").append(value.lastupdatedtime);
+      }
+    });
+    
+  });
+});
