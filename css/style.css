@@ -86,6 +86,7 @@ footer{
 footer p>span{
 	color: #01FEED;
 }
+
 footer .column i{
 	color: #ffffff;
 	padding: 0.5em;
@@ -96,3 +97,4 @@ footer .column i+i{
 .text-light {
   color: red;
 }
+
