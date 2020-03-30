@@ -7,15 +7,12 @@ $(document).ready(function() {
       data
     ) {
       var x = "";
-      var y = "";
       $("#tbody").empty();
       $("#ending").empty();
       $.each(data, function(key, value) {
         if (key.toLowerCase() == str.toLowerCase()) {
           $.each(value, function(key1, value1) {
             $.each(value1, function(key2, value2) {
-              // y = key2 + value2.confirmed + "<br/>";
-              // $("#test").append(y);
               x += "<tr>";
               x += "<td data-title='state' > " + key + "</td>";
               x += "<td data-title='district' > " + key2 + "</td>";
@@ -26,8 +23,20 @@ $(document).ready(function() {
       });
       $("#table").append(x);
       if (!x) {
-      $("#ending").append("That's all for Now!");
+        $.getJSON("https://api.covid19india.org/data.json", function(data) {
+          y = 0;
+          $.each(data["statewise"], function(key, value) {
+            if (value.state.toLowerCase() == str.toLowerCase()) {
+              $("#ending").append("No known cases till Now!");
+              y = 1;
+              return false;
+            }
+          });
+          if (y == 0) {
+            $("#ending").append("Enter a valid state..");
+          }
+        });
       }
     });
-  });  
+  });
 });
