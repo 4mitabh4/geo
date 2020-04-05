@@ -20,17 +20,17 @@ map.on("drag", function() {
 
 // color
 function getColor(d) {
-  return d > 160
+  return d > 350
     ? "#800026"
-    : d >130
+    : d >260
     ? "#BD0026"
-    : d > 100
+    : d > 230
     ? "#E31A1C"
-    : d > 70
+    : d > 150
     ? "#FC4E2A"
-    : d > 40
+    : d > 90
     ? "#FD8D3C"
-    : d > 15
+    : d > 40
     ? "#FEB24C"
     : d > 5
     ? "#FED976"
@@ -85,7 +85,7 @@ var legend = L.control({ position: "bottomright" });
 
 legend.onAdd = function(map) {
   var div = L.DomUtil.create("div", "info legend"),
-    grades = [0, 5, 15, 40, 70, 100, 130, 160],
+    grades = [0, 5, 40, 90, 150, 230, 260, 350],
     labels = [];
 
   // loop through our density intervals and generate a label with a colored square for each interval
