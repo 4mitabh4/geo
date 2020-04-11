@@ -21,24 +21,15 @@ $(document).ready(function() {
 // total 
 $(document).ready(function() {
   $.getJSON("https://api.covid19india.org/data.json", function (data) {
-    var y = 0;
-    var x = 0;
-    var z = 0;
-    $.each(data["cases_time_series"], function (key1, value1) {
-      if (value1.totalconfirmed) {
-        y = value1.totalconfirmed;
-        x = value1.totaldeceased;
-        z = value1.totalrecovered;
-      }
-    });
+    
       $.each(data["statewise"], function (key, value) {
         if (value.state == "Total") {
           $("#Confirmed").append(value.confirmed);
-          $("#Today_Confirmed").append(value.confirmed-y);
+          $("#Today_Confirmed").append(value.deltaconfirmed);
           $("#Death").append(value.deaths);
-          $("#Today_Death").append(value.deaths-x);
+          $("#Today_Death").append(value.deltadeaths);
           $("#Recovered").append(value.recovered);
-          $("#Today_Recovered").append(value.recovered-z);
+          $("#Today_Recovered").append(value.deltarecovered);
           $("#Updated").append(value.lastupdatedtime);
         }
       });
