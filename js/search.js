@@ -9,15 +9,22 @@ $(document).ready(function() {
       var x = "";
       $("#tbody").empty();
       $("#ending").empty();
-      $.each(data, function(key, value) {
+      
+      $.each(data, function (key, value) {  
         if (key.toLowerCase() == str.toLowerCase()) {
-          $.each(value, function(key1, value1) {
-            $.each(value1, function(key2, value2) {
-              x += "<tr>";
-              x += "<td data-title='state' > " + key + "</td>";
-              x += "<td data-title='district' > " + key2 + "</td>";
-              x += "<td data-title='Confirmed'>" + value2.confirmed + "</td>";
-            });
+          $.each(value, function (key1, value1) {
+            if (key1.toLowerCase() == "districtdata")
+            {
+              $.each(value1, function(key2, value2) {
+                x += "<tr>";
+                x += "<td data-title='State' > " + key + "</td>";
+                x += "<td data-title='District' > " + key2 + "</td>";
+                x += "<td data-title='Confirmed'>" + value2.confirmed + "</td>";
+                x += "<td data-title='Active'>" + value2.active + "</td>";
+                x += "<td data-title='Recovered'>" + value2.recovered + "</td>";
+                x += "<td data-title='Deceased'>" + value2.deceased + "</td>";
+              });
+              }
           });
         }
       });
